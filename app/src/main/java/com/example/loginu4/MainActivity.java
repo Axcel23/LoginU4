@@ -16,15 +16,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         try {
-            Intent datos= getIntent();
-            String nombre= datos.getStringExtra("nombre");
-            String telefono = ""+datos.getIntExtra("telefono", -1);
-            String correo = datos.getStringExtra("correo");
-            String contraseña = datos.getStringExtra("contraseña");
+            Bundle sabe = getIntent().getExtras();
+            Usuario usua= sabe.getParcelable("Sas");
             Snackbar msm= Snackbar.make
-                    (findViewById(R.id.datos), nombre+"-"+telefono+"-"+correo+"-"+contraseña,
+                    (findViewById(R.id.datos),usua.getNombre()+"-"+usua.getTelefono()+"-"+usua.getCorreo()+"-"+usua.getContraseña(),
                             BaseTransientBottomBar.LENGTH_LONG);
-            if (!nombre.equals("")||telefono.equals("")||correo.equals("")||contraseña.equals("")){
+            if (!usua.getNombre().equals("") && usua.getCorreo().equals("")&&usua.getContraseña().equals("")){
                 msm.show();
             }
         }catch (Exception e){

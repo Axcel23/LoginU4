@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.google.android.material.snackbar.BaseTransientBottomBar;
+import com.google.android.material.snackbar.Snackbar;
+
 public class ResgitroActivity extends AppCompatActivity {
 private EditText nombre;
 private EditText telefono;
@@ -37,10 +40,7 @@ private EditText contraseña;
                  correo.getText().toString(), contraseña.getText().toString());
 
          Intent logi = new Intent(getApplicationContext(), MainActivity.class);
-         logi.putExtra("nombre", usua.getNombre());
-         logi.putExtra("telefono", usua.getTelefono());
-         logi.putExtra("correo", usua.getCorreo());
-         logi.putExtra("contraseña", usua.getContraseña());
+         logi.putExtra("Sas", usua);
          startActivity(logi);
      }
     }
